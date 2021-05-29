@@ -1,0 +1,54 @@
+div#navbarSupportedContent {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.navbar-nav {
+  flex-direction: row;
+  gap: 20px;
+}
+
+.nav-link {
+  color: #f3f3f3!important;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.nav-link:hover {
+  color: #fff!important;
+}
+
+.row {
+  --bs-gutter-x: 0;
+}
+
+.navbar-brand {
+  width: 120px;
+}
+
+.cssBox {
+  margin: 10px;
+  flex-basis: calc(33% - 17px);
+}
+
+.navbar-light .navbar-toggler {
+  border-color: rgba(234, 234, 234, 0.1)
+}
+
+.navbar-light .navbar-toggler-icon {
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(223deg) brightness(102%) contrast(100%);
+}
+
+@media only screen and (max-width: 992px) {
+  .cssBox {
+    margin: 10px;
+    flex-basis: calc(50% - 20px);
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .cssBox {
+    margin: 10px 0;
+    flex-basis: 100%;
+  }
+}

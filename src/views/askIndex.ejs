@@ -1,0 +1,44 @@
+<%- include("./includes/head") %> <%- include("./includes/nav") %>
+
+<div class="container my-5">
+  <div class="card">
+    <div class="card-header">
+      <h3>Faça sua pergunta</h3>
+    </div>
+    <div class="card-body">
+      <form method="POST" action="/savequestion" class="form">
+        <div class="mb-3">
+          <label for="title">Título</label>
+          <input name="title" id="title" type="text" class="form-control" />
+        </div>
+        <div class="mb-3">
+          <label for="content">Descreva sua pergunta</label>
+          <textarea
+            name="content"
+            id="content"
+            cols="30"
+            rows="10"
+            class="form-control"
+          ></textarea>
+        </div>
+
+        <button class="btn btn-success">Perguntar</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script defer>
+  (() => {
+    const form = document.querySelector(".form");
+    const button = document.querySelector("button.btn");
+    form.addEventListener("keyup", function (event) {
+      if (event.keyCode === 13) {
+        event.preventDefault();
+        button.click();
+      }
+    });
+  })();
+</script>
+
+<%- include("./includes/footer") %>

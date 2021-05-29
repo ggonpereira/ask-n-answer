@@ -1,0 +1,45 @@
+<%- include("./includes/head") %> <%- include("./includes/nav") %>
+<div class="container my-5">
+  <% if (qList.length != 0) { %>
+  <div class="card mb-5">
+    <div class="card-body">
+      <h3>Deseja fazer alguma pergunta?</h3>
+      <p>Não exite! Sempre há alguém disposto a responder qualquer questão.</p>
+      <a href="/ask" class="btn btn-primary">FAZER UMA PERGUNTA</a>
+    </div>
+  </div>
+  <% } %>
+
+  <div class="row">
+    <% if (qList.length == 0) { %>
+    <div class="col-8 mx-auto">
+      <h1 class="display-6 text-center">
+        Nenhuma pergunta foi adicionada ainda :(
+      </h1>
+      <p class="text-center">Seja o primeiro a adicionar uma pergunta:</p>
+      <div class="col-12 text-center">
+        <a href="/ask" class="btn btn-primary text-center"
+          >ADICIONAR PERGUNTA</a
+        >
+      </div>
+    </div>
+
+    <% } else { %> <% qList.forEach((q) => { %>
+    <div class="card col-lg-4 col-md-6 col-sm-12 cssBox">
+      <div class="card-header">
+        <h4 class="card-title"><%= q.title %></h4>
+      </div>
+      <div class="card-body">
+        <p class="card-text"><%= q.content %></p>
+      </div>
+      <div class="card-footer">
+        <a href="/question/<%= q.id %>" class="btn btn-success">
+          Responder esta questão</a
+        >
+      </div>
+    </div>
+    <% }) %> <% } %>
+  </div>
+</div>
+
+<%- include("./includes/footer") %>

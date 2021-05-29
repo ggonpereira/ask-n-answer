@@ -1,0 +1,63 @@
+<%- include("./includes/head") %> <%- include("./includes/nav") %>
+
+<div class="container my-5">
+  <div class="card">
+    <div class="card-header">
+      <h2><%= title %></h2>
+    </div>
+    <div class="card-body">
+      <p style="margin-bottom: 0"><%= content %></p>
+    </div>
+    <% if (answerContent.length !== 0) { %>
+    <div class="card-footer">
+      <h5>Respostas já adicionadas</h5>
+      <% answerContent.forEach((answer) => { %>
+      <div class="card my-2">
+        <div class="card-body">
+          <p style="margin-bottom: 0"><%= answer.content %></p>
+        </div>
+      </div>
+      <% }) %>
+    </div>
+    <% } %>
+  </div>
+  <div class="card my-5">
+    <div class="card-header">
+      <h5>
+        <label for="content">Adicione uma resposta para essa pergunta</label>
+      </h5>
+    </div>
+    <div class="card-body">
+      <form method="POST" action="/saveanswer" class="form">
+        <div class="mb-3">
+          <textarea
+            name="content"
+            id="content"
+            cols="30"
+            rows="5"
+            placeholder="Escreva sua resposta"
+            class="form-control"
+          ></textarea>
+        </div>
+        <input type="hidden" name="questionId" value="<%= id %>" />
+
+        <button class="btn btn-success">Responder</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script defer>
+  (() => {
+    const form = document.querySelector(".form");
+    const button = document.querySelector("button.btn");
+    form.addEventListener("keyup", function (event) {
+      if (event.keyCode === 13) {
+        event.preventDefault();
+        button.click();
+      }
+    });
+  })();
+</script>
+
+<%- include("./includes/footer") %>
