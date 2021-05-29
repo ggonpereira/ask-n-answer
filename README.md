@@ -1,5 +1,5 @@
 <h4 align="center">
-<img src="https://raw.githubusercontent.com/ggonpereira/ask-n-answer/public/assets/img/logo.png" width="40%" /><br>
+<img src="https://github.com/ggonpereira/ask-n-answer/blob/master/public/assets/img/logo.png?raw=true" width="40%" /><br>
  <h1 align="center">Ask'n Answer 🤗</h1> 
 </h4>
 
